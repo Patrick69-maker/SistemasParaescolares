@@ -1,0 +1,8 @@
+// public/js/lista-alumnos.js
+fetch('/lista-alumnos')
+    .then(response => response.json())
+    .then(alumnos => {
+        const listaDiv = document.getElementById('lista-alumnos');
+        listaDiv.innerHTML = alumnos.map(alumno => `<p>${alumno.nombre} - ${alumno.correo}</p>`).join('');
+    })
+    .catch(error => console.error('Error al obtener la lista de alumnos:', error));
